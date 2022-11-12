@@ -165,3 +165,71 @@ SELECT MIN(MARKS) AS MIN_MARKS ,MAX(MARKS) AS MAX_MARKS,NAME FROM MSC GROUP BY N
 SELECT SUM(MARKS) AS TOTAL, AVG(MARKS) AS AVG ,NAME FROM MSC GROUP BY NAME
 
 --
+
+
+
+
+######################################################################
+
+CREATE DATABASE Ayush;
+
+
+use Ayush;
+
+create table books(
+	id int primary key,
+	book_name nvarchar(200),
+	book_price money);
+
+
+insert into books(id, book_name, book_price)
+values(1, 'Into SSIS', 452),
+(2, 'BDA', 785),
+(3, 'ML', 563),
+(4, 'Data Warehouse', 1023),
+(5, 'Selenium', 4532),
+(6, 'Python Basic', 165);
+
+
+SELECT * into books_hist FROM books WHERE 2 =0;
+
+SELECT *FROM books;
+SELECT* FROM books_hist;
+
+-- Adding one more entry in the books table after running SSIS
+
+insert into books(id, book_name, book_price)
+values(7, 'Data Mining', 769);
+
+insert into books(id, book_name, book_price)
+values(8, 'Statistical modelling', 956);
+
+insert into books(id, book_name, book_price)
+values(9, 'Linear models', 855);
+
+insert into books(id, book_name, book_price)
+values(5, 'ANOVA', 1023);
+
+
+insert into books(id, book_name, book_price)
+values(6, 'ML', 1023);
+
+-- Updating record in books
+
+update books
+set book_price = 300
+where id = 3;
+
+update books
+set book_price = 896
+where id = 9;
+
+-- Droping a particular entry from books table
+delete from books where id = 5;
+
+select * from books
+
+-- Creating another empty table with same structure
+select * into books_hist1 from books where 1=0;
+
+###############################################################################
